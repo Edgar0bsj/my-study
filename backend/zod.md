@@ -1,4 +1,18 @@
-# **Validação de Dados com Zod**
+# **↪︎ 👨‍💻 Validação de Dados com Zod**
+
+- [**↪︎ 👨‍💻 Validação de Dados com Zod**](#︎--validação-de-dados-com-zod)
+	- [⚙️ **Fluxo de Funcionamento**](#️-fluxo-de-funcionamento)
+	- [📦 **1. Instalar o Zod**](#-1-instalar-o-zod)
+	- [🧱 **2. Criar um Schema de Validação**](#-2-criar-um-schema-de-validação)
+	- [🧪 **3. Validar Dados**](#-3-validar-dados)
+		- [✅ `parse()` → lança erro se inválido](#-parse--lança-erro-se-inválido)
+		- [⚠️ `safeParse()` → não lança erro, retorna sucesso/falha](#️-safeparse--não-lança-erro-retorna-sucessofalha)
+	- [🧩 **4. Lidando com Erros**](#-4-lidando-com-erros)
+	- [🧠 **5. Inferindo Tipos com TypeScript**](#-5-inferindo-tipos-com-typescript)
+	- [🚦 **6. Integração com Express (Exemplo Prático)**](#-6-integração-com-express-exemplo-prático)
+	- [🧭 **Resumo do Fluxo**](#-resumo-do-fluxo)
+	- [💡 **Dicas Extras**](#-dicas-extras)
+	- [🧾 **Exemplo Completo**](#-exemplo-completo)
 
 ## ⚙️ **Fluxo de Funcionamento**
 

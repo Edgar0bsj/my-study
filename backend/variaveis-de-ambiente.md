@@ -1,4 +1,15 @@
-## 🌱 **Variáveis de Ambiente**
+## **↪︎ 🌱 Variáveis de Ambiente**
+
+- [**↪︎ 🌱 Variáveis de Ambiente**](#︎--variáveis-de-ambiente)
+- [⚙️ **Fluxo de Funcionamento**](#️-fluxo-de-funcionamento)
+- [🧩 **1. Instalar o pacote `dotenv`**](#-1-instalar-o-pacote-dotenv)
+- [🗂️ **2. Criar o arquivo `.env`**](#️-2-criar-o-arquivo-env)
+- [🔧 **3. Carregar as variáveis na aplicação**](#-3-carregar-as-variáveis-na-aplicação)
+- [🧠 **4. Usando variáveis de ambiente**](#-4-usando-variáveis-de-ambiente)
+- [🧱 **5. Tipagem e Validação (opcional)**](#-5-tipagem-e-validação-opcional)
+- [🧩 **6. Exemplo de uso completo**](#-6-exemplo-de-uso-completo)
+- [🧭 **Resumo do Fluxo**](#-resumo-do-fluxo)
+- [💡 **Dicas Extras**](#-dicas-extras)
 
 ## ⚙️ **Fluxo de Funcionamento**
 
@@ -93,7 +104,7 @@ console.log("Conectando ao banco:", env.DB_URI);
 
 ---
 
-## 🧱 **5. Tipagem e Validação (opcional, mas recomendada)**
+## 🧱 **5. Tipagem e Validação (opcional)**
 
 Para projetos maiores, você pode garantir que todas as variáveis estejam presentes usando uma biblioteca como `zod`:
 

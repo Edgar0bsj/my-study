@@ -1,6 +1,18 @@
-# **Iniciando Projeto**
+# **↪︎ 👨‍💻 Iniciando Projeto**
 
-## ⚙️ **Fluxo de Funcionamento**
+- [**↪︎ 👨‍💻 Iniciando Projeto**](#︎--iniciando-projeto)
+	- [**↪︎ Fluxo de Funcionamento**](#︎-fluxo-de-funcionamento)
+	- [**↪︎ 1. Iniciar o projeto**](#︎-1-iniciar-o-projeto)
+	- [**↪︎ 2. Instalar TypeScript e Tipos Node**](#︎-2-instalar-typescript-e-tipos-node)
+	- [**↪︎ 3. Gerar o arquivo `tsconfig.json`**](#︎-3-gerar-o-arquivo-tsconfigjson)
+	- [**↪︎ 4. Configurar o `package.json`**](#︎-4-configurar-o-packagejson)
+	- [**↪︎ 5. Estrutura de Pastas Recomendada**](#︎-5-estrutura-de-pastas-recomendada)
+	- [**↪︎ 6. Exemplo de Código Base (`src/index.ts`)**](#︎-6-exemplo-de-código-base-srcindexts)
+	- [**↪︎ 7. Execução Automática (opcional)**](#︎-7-execução-automática-opcional)
+	- [**↪︎ Resumo do Fluxo**](#︎-resumo-do-fluxo)
+	- [**↪︎ Tipagem Global**](#︎-tipagem-global)
+
+## **↪︎ Fluxo de Funcionamento**
 
 1. **Iniciar o projeto Node.js**
 2. **Instalar e configurar o TypeScript**
@@ -13,7 +25,7 @@
 
 ---
 
-## **1. Iniciar o projeto**
+## **↪︎ 1. Iniciar o projeto**
 
 Crie a pasta e inicialize o projeto:
 
@@ -25,7 +37,7 @@ npm init -y
 
 ---
 
-## 🧰 **2. Instalar TypeScript e Tipos Node**
+## **↪︎ 2. Instalar TypeScript e Tipos Node**
 
 Instale o TypeScript e as definições de tipos:
 
@@ -38,7 +50,7 @@ npm install @types/node --save-dev
 
 ---
 
-## 🔧 **3. Gerar o arquivo `tsconfig.json`**
+## **↪︎ 3. Gerar o arquivo `tsconfig.json`**
 
 Crie o arquivo de configuração base com o comando:
 
@@ -77,7 +89,7 @@ Agora edite o `tsconfig.json` com uma configuração voltada para **escalabilida
 
 ---
 
-## 📦 **4. Configurar o `package.json`**
+## **↪︎ 4. Configurar o `package.json`**
 
 Abra o `package.json` e adicione a linha `"type": "module"` logo após `"main"`.
 Isso informa ao Node que o projeto usa **ES Modules** em vez de CommonJS.
@@ -104,7 +116,7 @@ Exemplo:
 
 ---
 
-## 🗂️ **5. Estrutura de Pastas Recomendada**
+## **↪︎ 5. Estrutura de Pastas Recomendada**
 
 ```
 meu-projeto-ts/
@@ -123,7 +135,7 @@ meu-projeto-ts/
 
 ---
 
-## 🧠 **6. Exemplo de Código Base (`src/index.ts`)**
+## **↪︎ 6. Exemplo de Código Base (`src/index.ts`)**
 
 ```ts
 // src/index.ts
@@ -150,7 +162,7 @@ npm start
 
 ---
 
-## 🧩 **7. Execução Automática (opcional)**
+## **↪︎ 7. Execução Automática (opcional)**
 
 Para desenvolvimento mais dinâmico, instale o `ts-node` e `nodemon`:
 
@@ -176,7 +188,7 @@ npm run dev
 
 ---
 
-## 🧭 **Resumo do Fluxo**
+## **↪︎ Resumo do Fluxo**
 
 | Etapa | Comando / Arquivo                    | Descrição                               |
 | ----- | ------------------------------------ | --------------------------------------- |
@@ -189,9 +201,9 @@ npm run dev
 
 ---
 
-## 💡 **Dica Extra — Tipagem Global**
+## **↪︎ Tipagem Global**
 
-Você pode criar um arquivo `src/types/global.d.ts` para definir **tipos globais**, úteis em grandes projetos:
+`src/types/global.d.ts` para definir **tipos globais**, úteis em grandes projetos:
 
 ```ts
 declare namespace App {
