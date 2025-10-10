@@ -1,39 +1,38 @@
 # 🍃 **Banco de Dados MongoDB**
 
 - [🍃 **Banco de Dados MongoDB**](#-banco-de-dados-mongodb)
-	- [⚙️ **Fluxo de Funcionamento**](#️-fluxo-de-funcionamento)
-	- [📦 **1. Instalar Dependências**](#-1-instalar-dependências)
-	- [🌱 **2. Configurar o arquivo `.env`**](#-2-configurar-o-arquivo-env)
-	- [🔧 **3. Criar o arquivo de conexão**](#-3-criar-o-arquivo-de-conexão)
-	- [🧩 **4. Criar um Schema e Model**](#-4-criar-um-schema-e-model)
-	- [⚙️ **5. Executar Operações CRUD**](#️-5-executar-operações-crud)
+	- [↪︎ **Fluxo de Funcionamento**](#︎-fluxo-de-funcionamento)
+	- [↪︎ **1. Instalar Dependências**](#︎-1-instalar-dependências)
+	- [↪︎ **2. Configurar o arquivo `.env`**](#︎-2-configurar-o-arquivo-env)
+	- [↪︎ **3. Criar o arquivo de conexão**](#︎-3-criar-o-arquivo-de-conexão)
+	- [↪︎ **4. Criar um Schema e Model**](#︎-4-criar-um-schema-e-model)
+	- [↪︎ **5. Executar Operações CRUD**](#︎-5-executar-operações-crud)
 		- [🟢 Criar um usuário](#-criar-um-usuário)
 		- [🔵 Buscar usuários](#-buscar-usuários)
 		- [🟡 Atualizar usuário](#-atualizar-usuário)
 		- [🔴 Deletar usuário](#-deletar-usuário)
-	- [🧠 **6. Integrando no Servidor**](#-6-integrando-no-servidor)
-	- [🧭 **Resumo do Fluxo**](#-resumo-do-fluxo)
-	- [💡 **Boas Práticas**](#-boas-práticas)
-	- [🧾 **Resumo Geral**](#-resumo-geral)
-- [# Schema Types](#-schema-types)
-	- [SchemaType Options](#schematype-options)
+	- [↪︎ **6. Integrando no Servidor**](#︎-6-integrando-no-servidor)
+	- [↪︎ **Resumo do Fluxo**](#︎-resumo-do-fluxo)
+	- [↪︎ **Resumo Geral**](#︎-resumo-geral)
+- [↪︎ Schema Types](#︎-schema-types)
+	- [↪︎ SchemaType Options](#︎-schematype-options)
 	- [🧵 Tipo: String](#-tipo-string)
 	- [🔢 Tipo: Number](#-tipo-number)
 	- [📅 Tipo: Date](#-tipo-date)
 	- [🆔 Tipo: ObjectId](#-tipo-objectid)
 	- [📌 Indexes (Índices do MongoDB)](#-indexes-índices-do-mongodb)
 	- [🧩 Todos os Tipos de Schema](#-todos-os-tipos-de-schema)
-- [Relação entre documentos](#relação-entre-documentos)
-	- [🔗 Relação "Um para Muitos"](#-relação-um-para-muitos)
-		- [🧱 Schema do Usuário](#-schema-do-usuário)
-		- [🧱 Schema do Post](#-schema-do-post)
-		- [🔍 Buscar todos os posts com dados do autor](#-buscar-todos-os-posts-com-dados-do-autor)
-	- [🔗 Relação "Muitos para Muitos"](#-relação-muitos-para-muitos)
-		- [🧱 Schema do Aluno](#-schema-do-aluno)
-		- [🧱 Schema da Turma](#-schema-da-turma)
-		- [🔍 Buscar uma turma com os dados dos alunos](#-buscar-uma-turma-com-os-dados-dos-alunos)
+- [↪︎ Relação entre documentos](#︎-relação-entre-documentos)
+	- [↪︎ Relação "Um para Muitos"](#︎-relação-um-para-muitos)
+		- [↪︎ Schema do Usuário](#︎-schema-do-usuário)
+		- [↪︎ Schema do Post](#︎-schema-do-post)
+		- [↪︎ Buscar todos os posts com dados do autor](#︎-buscar-todos-os-posts-com-dados-do-autor)
+	- [↪︎ Relação "Muitos para Muitos"](#︎-relação-muitos-para-muitos)
+		- [↪︎ Schema do Aluno](#︎-schema-do-aluno)
+		- [↪︎ Schema da Turma](#︎-schema-da-turma)
+		- [↪︎ Buscar uma turma com os dados dos alunos](#︎-buscar-uma-turma-com-os-dados-dos-alunos)
 
-## ⚙️ **Fluxo de Funcionamento**
+## ↪︎ **Fluxo de Funcionamento**
 
 1. Instalar dependências
 2. Criar e configurar o ambiente `.env`
@@ -44,7 +43,7 @@
 
 ---
 
-## 📦 **1. Instalar Dependências**
+## ↪︎ **1. Instalar Dependências**
 
 O **Mongoose** é a biblioteca oficial para trabalhar com MongoDB em Node.js, fornecendo uma camada de abstração baseada em **schemas e models**.
 
@@ -55,7 +54,7 @@ npm install @types/mongoose --save-dev
 
 ---
 
-## 🌱 **2. Configurar o arquivo `.env`**
+## ↪︎ **2. Configurar o arquivo `.env`**
 
 Adicione as credenciais do banco no `.env`:
 
@@ -73,7 +72,7 @@ DB_URI=mongodb+srv://usuario:senha@cluster.exemplo.mongodb.net/meu_banco
 
 ---
 
-## 🔧 **3. Criar o arquivo de conexão**
+## ↪︎ **3. Criar o arquivo de conexão**
 
 Estrutura recomendada:
 
@@ -109,7 +108,7 @@ export async function connectDB(): Promise<void> {
 
 ---
 
-## 🧩 **4. Criar um Schema e Model**
+## ↪︎ **4. Criar um Schema e Model**
 
 O **schema** define a estrutura dos documentos (como uma "tabela"), enquanto o **model** representa essa estrutura dentro da aplicação.
 
@@ -151,7 +150,7 @@ versionKey: false, // remove o campo __v
 
 ---
 
-## ⚙️ **5. Executar Operações CRUD**
+## ↪︎ **5. Executar Operações CRUD**
 
 ### 🟢 Criar um usuário
 
@@ -207,7 +206,7 @@ console.log("🗑️ Usuário removido!");
 
 ---
 
-## 🧠 **6. Integrando no Servidor**
+## ↪︎ **6. Integrando no Servidor**
 
 ```ts
 // src/index.ts
@@ -229,7 +228,7 @@ app.listen(3000, () => console.log("Servidor ativo na porta 3000"));
 
 ---
 
-## 🧭 **Resumo do Fluxo**
+## ↪︎ **Resumo do Fluxo**
 
 | Etapa | Descrição                | Arquivo / Comando                            |
 | ----- | ------------------------ | -------------------------------------------- |
@@ -242,18 +241,7 @@ app.listen(3000, () => console.log("Servidor ativo na porta 3000"));
 
 ---
 
-## 💡 **Boas Práticas**
-
-1. ✅ **Usar variáveis de ambiente** para credenciais.
-2. 🧱 **Centralizar a conexão** do banco em `config/database.ts`.
-3. 🧩 **Separar models por entidade** (`userModel.ts`, `productModel.ts`, etc.).
-4. ⚙️ **Criar interfaces TypeScript** para cada model, garantindo tipagem forte.
-5. 🚨 **Tratar erros de conexão** com `try/catch` e logs claros.
-6. 🔄 **Evitar desconexões forçadas**, usando `mongoose.connect` apenas uma vez na inicialização.
-
----
-
-## 🧾 **Resumo Geral**
+## ↪︎ **Resumo Geral**
 
 | Conceito     | Explicação                                                         |
 | ------------ | ------------------------------------------------------------------ |
@@ -266,7 +254,7 @@ app.listen(3000, () => console.log("Servidor ativo na porta 3000"));
 
 ---
 
-# # Schema Types
+# ↪︎ Schema Types
 
 1. String
 2. Number
@@ -286,7 +274,7 @@ app.listen(3000, () => console.log("Servidor ativo na porta 3000"));
 
 ---
 
-## SchemaType Options
+## ↪︎ SchemaType Options
 
 ## 🧵 Tipo: String
 
@@ -358,13 +346,13 @@ transform: fn         // Modifica o valor ao converter para JSON
 
 ---
 
-# Relação entre documentos
+# ↪︎ Relação entre documentos
 
-## 🔗 Relação "Um para Muitos"
+## ↪︎ Relação "Um para Muitos"
 
 Imagine que um **usuário pode ter vários posts**. Cada post pertence a um único usuário.
 
-### 🧱 Schema do Usuário
+### ↪︎ Schema do Usuário
 
 ```js
 const UsuarioSchema = new mongoose.Schema({
@@ -372,7 +360,7 @@ const UsuarioSchema = new mongoose.Schema({
 });
 ```
 
-### 🧱 Schema do Post
+### ↪︎ Schema do Post
 
 ```js
 const PostSchema = new mongoose.Schema({
@@ -384,7 +372,7 @@ const PostSchema = new mongoose.Schema({
 });
 ```
 
-### 🔍 Buscar todos os posts com dados do autor
+### ↪︎ Buscar todos os posts com dados do autor
 
 ```js
 Post.find().populate("autor"); // Traz os dados completos do autor junto com os posts
@@ -392,11 +380,11 @@ Post.find().populate("autor"); // Traz os dados completos do autor junto com os 
 
 ---
 
-## 🔗 Relação "Muitos para Muitos"
+## ↪︎ Relação "Muitos para Muitos"
 
 Imagine que **alunos podem estar em várias turmas** e **turmas podem ter vários alunos**.
 
-### 🧱 Schema do Aluno
+### ↪︎ Schema do Aluno
 
 ```js
 const AlunoSchema = new mongoose.Schema({
@@ -410,7 +398,7 @@ const AlunoSchema = new mongoose.Schema({
 });
 ```
 
-### 🧱 Schema da Turma
+### ↪︎ Schema da Turma
 
 ```js
 const TurmaSchema = new mongoose.Schema({
@@ -424,7 +412,7 @@ const TurmaSchema = new mongoose.Schema({
 });
 ```
 
-### 🔍 Buscar uma turma com os dados dos alunos
+### ↪︎ Buscar uma turma com os dados dos alunos
 
 ```js
 Turma.find().populate("alunos"); // Traz os dados completos dos alunos da turma
