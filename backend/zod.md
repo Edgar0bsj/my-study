@@ -1,18 +1,18 @@
 # **↪︎ 👨‍💻 Validação de Dados com Zod**
 
 - [**↪︎ 👨‍💻 Validação de Dados com Zod**](#︎--validação-de-dados-com-zod)
-	- [⚙️ **Fluxo de Funcionamento**](#️-fluxo-de-funcionamento)
-	- [📦 **1. Instalar o Zod**](#-1-instalar-o-zod)
-	- [🧱 **2. Criar um Schema de Validação**](#-2-criar-um-schema-de-validação)
-	- [🧪 **3. Validar Dados**](#-3-validar-dados)
-		- [✅ `parse()` → lança erro se inválido](#-parse--lança-erro-se-inválido)
-		- [⚠️ `safeParse()` → não lança erro, retorna sucesso/falha](#️-safeparse--não-lança-erro-retorna-sucessofalha)
-	- [🧩 **4. Lidando com Erros**](#-4-lidando-com-erros)
-	- [🧠 **5. Inferindo Tipos com TypeScript**](#-5-inferindo-tipos-com-typescript)
-	- [🚦 **6. Integração com Express (Exemplo Prático)**](#-6-integração-com-express-exemplo-prático)
-	- [🧭 **Resumo do Fluxo**](#-resumo-do-fluxo)
-	- [💡 **Dicas Extras**](#-dicas-extras)
-	- [🧾 **Exemplo Completo**](#-exemplo-completo)
+  - [⚙️ **Fluxo de Funcionamento**](#️-fluxo-de-funcionamento)
+  - [📦 **1. Instalar o Zod**](#-1-instalar-o-zod)
+  - [🧱 **2. Criar um Schema de Validação**](#-2-criar-um-schema-de-validação)
+  - [🧪 **3. Validar Dados**](#-3-validar-dados)
+    - [✅ `parse()` → lança erro se inválido](#-parse--lança-erro-se-inválido)
+    - [⚠️ `safeParse()` → não lança erro, retorna sucesso/falha](#️-safeparse--não-lança-erro-retorna-sucessofalha)
+  - [🧩 **4. Lidando com Erros**](#-4-lidando-com-erros)
+  - [🧠 **5. Inferindo Tipos com TypeScript**](#-5-inferindo-tipos-com-typescript)
+  - [🚦 **6. Integração com Express (Exemplo Prático)**](#-6-integração-com-express-exemplo-prático)
+  - [🧭 **Resumo do Fluxo**](#-resumo-do-fluxo)
+  - [💡 **Dicas Extras**](#-dicas-extras)
+  - [🧾 **Exemplo Completo**](#-exemplo-completo)
 
 ## ⚙️ **Fluxo de Funcionamento**
 
@@ -102,15 +102,24 @@ O Zod fornece detalhes claros sobre cada campo inválido.
 
 ```ts
 try {
-  userSchema.parse({
-    name: "",
-    email: "email_invalido",
-    age: 10,
-    password: "123",
-  });
-} catch (error) {
-  if (error instanceof z.ZodError) {
-    console.error(error.errors);
+  Player.parse({ username: 42, xp: "100" });
+} catch (err) {
+  if (err instanceof z.ZodError) {
+    err.issues;
+    /* [
+      {
+        expected: 'string',
+        code: 'invalid_type',
+        path: [ 'username' ],
+        message: 'Invalid input: expected string'
+      },
+      {
+        expected: 'number',
+        code: 'invalid_type',
+        path: [ 'xp' ],
+        message: 'Invalid input: expected number'
+      }
+    ] */
   }
 }
 ```
