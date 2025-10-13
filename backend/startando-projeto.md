@@ -11,6 +11,7 @@
 	- [**↪︎ 7. Execução Automática (opcional)**](#︎-7-execução-automática-opcional)
 	- [**↪︎ Resumo do Fluxo**](#︎-resumo-do-fluxo)
 	- [**↪︎ Tipagem Global**](#︎-tipagem-global)
+- [Capturando erro especifico](#capturando-erro-especifico)
 
 ## **↪︎ Fluxo de Funcionamento**
 
@@ -217,3 +218,24 @@ declare namespace App {
 > Assim você pode usar `App.User` em qualquer parte do projeto sem precisar importar.
 
 ---
+
+# Capturando erro especifico
+
+```ts
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setMsgError(["[Error]>> favor tente mais tarde"]);
+        console.error("[Error] >> ", error.message);
+      }
+      if (typeof error === "object" && error !== null && "response" in error) {
+        type ResponseError = {
+          response: {
+            data: {
+              message: string;
+            };
+          };
+        };
+        setMsgError([(error as ResponseError).response.data.message]);
+      }
+    }
+```
