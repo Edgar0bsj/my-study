@@ -1,17 +1,19 @@
 # **↪︎ 👨‍💻 Iniciando Projeto**
 
 - [**↪︎ 👨‍💻 Iniciando Projeto**](#︎--iniciando-projeto)
-	- [**↪︎ Fluxo de Funcionamento**](#︎-fluxo-de-funcionamento)
-	- [**↪︎ 1. Iniciar o projeto**](#︎-1-iniciar-o-projeto)
-	- [**↪︎ 2. Instalar TypeScript e Tipos Node**](#︎-2-instalar-typescript-e-tipos-node)
-	- [**↪︎ 3. Gerar o arquivo `tsconfig.json`**](#︎-3-gerar-o-arquivo-tsconfigjson)
-	- [**↪︎ 4. Configurar o `package.json`**](#︎-4-configurar-o-packagejson)
-	- [**↪︎ 5. Estrutura de Pastas Recomendada**](#︎-5-estrutura-de-pastas-recomendada)
-	- [**↪︎ 6. Exemplo de Código Base (`src/index.ts`)**](#︎-6-exemplo-de-código-base-srcindexts)
-	- [**↪︎ 7. Execução Automática (opcional)**](#︎-7-execução-automática-opcional)
-	- [**↪︎ Resumo do Fluxo**](#︎-resumo-do-fluxo)
-	- [**↪︎ Tipagem Global**](#︎-tipagem-global)
-- [Capturando erro especifico](#capturando-erro-especifico)
+  - [**↪︎ Fluxo de Funcionamento**](#︎-fluxo-de-funcionamento)
+  - [**↪︎ 1. Iniciar o projeto**](#︎-1-iniciar-o-projeto)
+  - [**↪︎ 2. Instalar TypeScript e Tipos Node**](#︎-2-instalar-typescript-e-tipos-node)
+  - [**↪︎ 3. Gerar o arquivo `tsconfig.json`**](#︎-3-gerar-o-arquivo-tsconfigjson)
+  - [**↪︎ 4. Configurar o `package.json`**](#︎-4-configurar-o-packagejson)
+  - [**↪︎ 5. Estrutura de Pastas Recomendada**](#︎-5-estrutura-de-pastas-recomendada)
+  - [**↪︎ 6. Exemplo de Código Base (`src/index.ts`)**](#︎-6-exemplo-de-código-base-srcindexts)
+  - [**↪︎ 7. Execução Automática (opcional)**](#︎-7-execução-automática-opcional)
+  - [**↪︎ Resumo do Fluxo**](#︎-resumo-do-fluxo)
+  - [**↪︎ Tipagem Global**](#︎-tipagem-global)
+- [-\> Erros](#--erros)
+  - [Capturando erro especifico](#capturando-erro-especifico)
+  - [Criando Erros especifico](#criando-erros-especifico)
 
 ## **↪︎ Fluxo de Funcionamento**
 
@@ -219,7 +221,9 @@ declare namespace App {
 
 ---
 
-# Capturando erro especifico
+# -> Erros
+
+## Capturando erro especifico
 
 ```ts
     } catch (error: unknown) {
@@ -237,5 +241,75 @@ declare namespace App {
         };
         setMsgError([(error as ResponseError).response.data.message]);
       }
+    }
+```
+
+---
+
+## Criando Erros especifico
+
+- Criando classe que permite mandar mais parametros
+
+```ts
+class AppError extends Error {
+  statusCode: number;
+
+  constructor(message: string, statusCode: number = 500) {
+    super(message);
+    this.statusCode = statusCode;
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
+
+export default AppError;
+```
+
+---
+
+- Lançando Error
+
+```ts
+if (!token) throw new AppError("Token ausente", 400);
+```
+
+---
+
+- Capturando Error
+
+```ts
+//Dentro de um catch
+catch(err){
+	console.error(`[ERROR]>> ${err.message || err}`);
+	const statusCode = err.statusCode || 500;
+	const message = err.message || "Erro interno do servidor";
+
+}
+```
+
+---
+
+- Capturando Error só lançado por você
+
+```ts
+    } catch (error: any) {
+      if (error instanceof AppError) {
+		console.error(`[ERROR]>> ${error.message || error}`);
+
+		const statusCode = error.statusCode || 500;
+		const message = error.message || "Erro interno do servidor";
+
+		res.status(statusCode).json({
+			success: false,
+			error: {
+			message,
+			statusCode,
+			},
+		});
+      }else {
+		  // Erros Genéricos
+		console.error(error)
+
+	  }
+
     }
 ```
